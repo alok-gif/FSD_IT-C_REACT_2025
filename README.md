@@ -1,1 +1,0 @@
-# FSD_IT-C_REACT_2025
