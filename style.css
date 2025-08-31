@@ -1,0 +1,47 @@
+/* h2{
+    background-color: yellow;
+    color: blue;
+    text-align:left;
+    padding: 0px;
+}
+p{
+    color: green;
+    font-size:20px;
+}
+h3{
+    color: red;
+    text-align:left;
+    padding: 0px;
+} */
+
+div~p{
+    background-color: lightgrey;
+}
+
+p:hover{
+    background-color: yellow;
+    color: blue;
+    font-size: xx-large
+}   
+
+p::after{
+    content: "React Development";
+    background-color: brown;
+}
+
+p::before{
+    content: "Welcome to ";
+    background-color: brown;
+}
+
+p::selection{
+    background-color: orange;
+}
+
+p:nth-child(2){
+    background-color: black;
+}   
+
+div p:nth-of-type(2){
+    background-color: pink;
+}
