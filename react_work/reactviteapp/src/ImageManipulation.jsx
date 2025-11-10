@@ -7,20 +7,25 @@ function ImageManipulation() {
     const [red, setRed] = useState(0)
     const [green, setGreen] = useState(0)
     const [blue, setBlue] = useState(0)
-
+    const [imageAngle, setImageAngle] = useState(0)
     function setColor(){
         setRed(Math.random()* 255)
         setBlue(Math.random()*255)
         setGreen(Math.random()*255)
     }
+    function rotateImage(){
+        // alert("Rotate Image by 90 degrees")
+        setImageAngle(imageAngle + 90)
+    }
     return (
         <div >Image Manipulation
         <div >
-            <img src={t} height={tHeight} width={tWidth} border={2} solid-green alt="t" style={{backgroundColor:`rgb(${red},${blue},${green})`}}/>
+            <img src={t} height={tHeight} width={tWidth} border={2} solid-green alt="t" style={{transform:`rotate(${imageAngle}deg)`, backgroundColor:`rgb(${red},${blue},${green})`}}/>
         </div>
         <button onClick={()=>settHeight(tHeight+20)}>increase</button>
         <button onClick={() => setTWidth(tWidth - 50)}>decrease width</button>
         <button onClick={setColor}>change bg</button>
+        <button onClick={rotateImage}>Rotate</button>
         </div>
     )
 }
