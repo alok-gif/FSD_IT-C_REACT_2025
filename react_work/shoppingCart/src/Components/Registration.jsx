@@ -1,60 +1,70 @@
-import React from 'react'
-    import 'bootstrap/dist/css/bootstrap.min.css';
+import React, { useState } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
+function Registration({ regData }) {
 
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-function Registration() {
-    return (
-        <div className="">
-            <h1>Registration Form</h1>
-            <form>
-  <div class="form-row">
-    <div class="form-group col-md-6">
-      <label for="inputEmail4">Email</label>
-      <input type="email" class="form-control" id="inputEmail4" placeholder="Email"/>
-    </div>
-    <div class="form-group col-md-6">
-      <label for="inputPassword4">Password</label>
-      <input type="password" class="form-control" id="inputPassword4" placeholder="Password"/>
-    </div>
-  </div>
-  <div class="form-group">
-    <label for="inputAddress">Address</label>
-    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St"/>
-  </div>
-  <div class="form-group">
-    <label for="inputAddress2">Address 2</label>
-    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor"/>
-  </div>
-  <div class="form-row">
-    <div class="form-group col-md-6">
-      <label for="inputCity">City</label>
-      <input type="text" class="form-control" id="inputCity"/>
-    </div>
-    <div class="form-group col-md-4">
-      <label for="inputState">State</label>
-      <select id="inputState" class="form-control">
-        <option selected>Choose...</option>
-        <option>...</option>
-      </select>
-    </div>
-    <div class="form-group col-md-2">
-      <label for="inputZip">Zip</label>
-      <input type="text" class="form-control" id="inputZip"/>
-    </div>
-  </div>
-  <div class="form-group">
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" id="gridCheck"/>
-      <label class="form-check-label" for="gridCheck">
-        Check me out
-      </label>
-    </div>
-  </div>
-  <button type="submit" class="btn btn-primary">Register</button>
-</form>
+  function getData(e) {
+    e.preventDefault();
+
+    const data = { name, email, password };
+    regData(data); // send to parent
+    console.log("Submitted:", data);
+  }
+
+  return (
+    <div>
+      <h1>Registration Form</h1>
+
+      <form onSubmit={getData}>
+        <div className="form-group col-md-6">
+          <label htmlFor="inputName4">Name</label>
+          <input
+            type="text"
+            className="form-control"
+            id="inputName4"
+            placeholder="Name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
         </div>
-    )
+
+        <div className="form-row">
+          <div className="form-group col-md-6">
+            <label htmlFor="inputEmail4">Email</label>
+            <input
+              type="email"
+              className="form-control"
+              id="inputEmail4"
+              placeholder="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
+
+          <div className="form-group col-md-6">
+            <label htmlFor="inputPassword4">Password</label>
+            <input
+              type="password"
+              className="form-control"
+              id="inputPassword4"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </div>
+        </div>
+
+        <br />
+        <button type="submit" className="btn btn-primary">
+          Register
+        </button>
+      </form>
+    </div>
+  );
 }
 
-export default Registration
+export default Registration;
